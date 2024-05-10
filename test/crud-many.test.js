@@ -22,4 +22,13 @@ describe('Prisma Client', () => {
         });
         expect(result.count).toBe(2); // Pastikan Anda menggunakan `result.count`
     });
+
+    it('should can delete many records', async () => {
+        const result = await prismaClient.customer.deleteMany({
+            where: {
+                name: "agisna1"
+            }
+        });
+        expect(result.count).toBe(3);
+    })
 })
