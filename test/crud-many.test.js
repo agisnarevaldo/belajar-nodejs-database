@@ -44,4 +44,10 @@ describe('Prisma Client', () => {
         });
         expect(result.count).toBe(3);
     })
+
+    it('should can read many records', async () => {
+        const customers = await prismaClient.customer.findMany({});
+        console.info(customers);
+        expect(customers.length).toBe(9);
+    })
 })
